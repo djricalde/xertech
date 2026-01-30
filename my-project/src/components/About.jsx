@@ -56,11 +56,11 @@ export default function About() {
         <div className="text-center mb-16">
           <motion.div 
             variants={itemVariants}
-            className="inline-flex items-center gap-2 rounded-full border px-4 py-2 text-sm mb-4
-                       border-purple-500/20 bg-purple-500/5
-                       dark:border-purple-500/30 dark:bg-purple-500/10"
+            className="inline-flex items-center gap-2 rounded-full border px-3 py-2 text-xs mb-4
+                       border-blue-500/20 bg-purple-500/5
+                       dark:border-blue-500/30 dark:bg-blue-500/10"
           >
-            <span className="text-purple-600 dark:text-purple-400">✦</span>
+            <span className="text-blue-600 dark:text-blue-400">✦</span>
             <span>Philosophy</span>
           </motion.div>
           
@@ -90,7 +90,7 @@ export default function About() {
             whileHover={{ y: -5, transition: { duration: 0.3 } }}
             className="rounded-3xl border p-8 shadow-xl
                        border-gray-200 bg-white
-                       dark:border-purple-500/20 dark:bg-[hsl(225_18%_10%)]"
+                       dark:border-blue-500/20 dark:bg-[hsl(225_18%_10%)]"
           >
             <motion.p 
               variants={itemVariants}
@@ -125,7 +125,7 @@ export default function About() {
             whileHover={{ y: -5, transition: { duration: 0.3 } }}
             className="rounded-3xl border p-8 shadow-xl
                        border-gray-200 bg-white
-                       dark:border-purple-500/20 dark:bg-[hsl(225_18%_10%)]"
+                       dark:border-blue-500/20 dark:bg-[hsl(225_18%_10%)]"
           >
             <motion.div variants={itemVariants} className="text-sm font-medium mb-2">
               What I value

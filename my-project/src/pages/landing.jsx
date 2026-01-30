@@ -2,6 +2,8 @@ import { useState, useEffect } from "react";
 import Home from "./home";
 import About from "../components/About";
 import Tech from "../components/Tech";
+import Project from "../components/Project";
+import Contact from "../components/Contact";
 
 export default function Landing() {
   const [dark, setDark] = useState(false);
@@ -21,6 +23,8 @@ export default function Landing() {
         <Home dark={dark} setDark={setDark} />
         <About dark={dark} />
         <Tech dark ={dark} />
+        <Project dark ={dark} />
+        <Contact dark ={dark} />
       </div>
     </div>
   );

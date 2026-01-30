@@ -2,6 +2,7 @@
 import { motion } from "framer-motion";
 import { useEffect, useState } from "react";
 import { TypeAnimation } from 'react-type-animation';
+import { Github } from "lucide-react";
 
 export default function Home({ dark, setDark }) {
   return (
@@ -17,7 +18,7 @@ export default function Home({ dark, setDark }) {
             duration: 2,
             ease: [0.16, 1, 0.3, 1] // Custom smooth easing
           }}
-          className="absolute -top-40 -right-40 h-[500px] w-[500px] rounded-full bg-[hsl(270_90%_62%/0.15)] blur-3xl" 
+          className="absolute -top-40 -right-40 h-[500px] w-[500px] rounded-full bg-[hsl(231_87%_60%/0.15)] blur-3xl" 
         />
         <motion.div 
           initial={{ opacity: 0, scale: 0.5 }}
@@ -79,9 +80,10 @@ export default function Home({ dark, setDark }) {
         {/* Center Nav */}
         <nav className="hidden md:flex items-center justify-center gap-10 text-sm">
           {[
+            { href: "#home", label: "Home" },
             { href: "#about", label: "About" },
             { href: "#tech", label: "Tech" },
-            { href: "#projects", label: "Projects" },
+            { href: "#project", label: "Project" },
             { href: "#contact", label: "Contact" }
           ].map((link, index) => (
             <motion.a
@@ -140,8 +142,10 @@ export default function Home({ dark, setDark }) {
       </motion.header>
 
       {/* Hero Section */}
-      <main className="relative z-10 mx-auto max-w-[1200px] px-8 pt-34 pb-36 grid grid-cols-1 lg:grid-cols-2 gap-24 items-center">
-        {/* Left */}
+      <main className="relative z-10 mx-auto max-w-[1200px] px-8 pt-34 pb-36 grid grid-cols-1 lg:grid-cols-2 gap-24 items-center"
+      id="home"
+      >
+       {/* Left */}
         <motion.section
           initial={{ opacity: 0, x: -30 }}
           animate={{ opacity: 1, x: 0 }}
@@ -190,9 +194,9 @@ export default function Home({ dark, setDark }) {
             <TypeAnimation
               sequence={[
                 'Dylan Ricalde',
-                1000,
+                500,
                 'Full-Stack Developer',
-                1000,
+                500,
               ]}
               wrapper="span"
               speed={50}
@@ -266,22 +270,25 @@ export default function Home({ dark, setDark }) {
             }}
             className="mt-10 flex flex-wrap gap-3 text-xs md:text-sm"
           >
-            <motion.a 
-              href="https://github.com/DylanRicalde"
-              whileHover={{ 
-                scale: 1.05,
-                y: -3
-              }}
-              whileTap={{ scale: 0.98 }}
-              transition={{ 
-                type: "spring",
-                stiffness: 400,
-                damping: 20
-              }}
-              className="rounded-full border border-black/5 dark:border-white/10 px-5 py-2 bg-white dark:bg-white/10 dark:text-white shadow-sm hover:bg-black/5 dark:hover:bg-white/20 transition"
-            >
-              GitHub
-            </motion.a>
+          <motion.a
+  href="https://github.com/DylanRicalde"
+  target="_blank"
+  rel="noopener noreferrer"
+  whileHover={{ 
+    scale: 1.05,
+    y: -3
+  }}
+  whileTap={{ scale: 0.98 }}
+  transition={{ 
+    type: "spring",
+    stiffness: 400,
+    damping: 20
+  }}
+  className="flex items-center gap-2 rounded-full border border-black/5 dark:border-white/10 px-5 py-2 bg-white dark:bg-white/10 dark:text-white shadow-sm hover:bg-black/5 dark:hover:bg-white/20 transition"
+>
+  <Github size={18} strokeWidth={1.75} />
+  <span>GitHub</span>
+</motion.a>
           </motion.div>
         </motion.section>
 
@@ -298,7 +305,7 @@ export default function Home({ dark, setDark }) {
             y: -8,
             transition: { duration: 0.3, ease: [0.16, 1, 0.3, 1] }
           }}
-          className="rounded-3xl border border-black/5 dark:border-[hsl(270_90%_62%)]/30 bg-white dark:bg-[hsl(225_18%_10%)] dark:shadow-[0_0_30px_rgba(139,92,246,0.2)] p-8 shadow-xl"
+          className="rounded-3xl border border-black/5 border-[hsl(231 87% 60%)]/30 bg-white dark:bg-[hsl(225_18%_10%)] dark:shadow-[0_0_30px_rgba(139,92,246,0.2)] p-8 shadow-xl"
         >
           <motion.div 
             initial={{ opacity: 0 }}

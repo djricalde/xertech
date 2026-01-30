@@ -66,10 +66,10 @@ export default function Tech() {
           transition={{ duration: 0.6 }}
           className="text-center mb-16"
         >
-          <div className="inline-flex items-center gap-2 rounded-full border px-4 py-2 text-sm mb-4
+          <div className="inline-flex items-center gap-2 rounded-full border px-3 py-2 text-xs mb-4
                           border-purple-500/20 bg-purple-500/5
-                          dark:border-purple-500/30 dark:bg-purple-500/10">
-            <span className="text-purple-600 dark:text-purple-400">⚡</span>
+                          dark:border-blue-500/30 dark:bg-blue-500/10">
+            <span className="text-blue-600 dark:text-blue-400">⚡</span>
             <span>Expertise</span>
           </div>
           
@@ -108,8 +108,8 @@ export default function Tech() {
                     className="grid h-12 w-12 place-items-center rounded-2xl transition-all
                                bg-gray-100 text-gray-700
                                dark:bg-white/10 dark:text-white
-                               group-hover:bg-purple-500 group-hover:text-white
-                               dark:group-hover:bg-purple-500"
+                               group-hover:bg-blue-500 group-hover:text-white
+                               dark:group-hover:bg-blue-500"
                     whileHover={{ rotate: 360 }}
                     transition={{ duration: 0.6 }}
                   >
@@ -131,7 +131,7 @@ export default function Tech() {
                       transition={{ delay: index * 0.1, duration: 0.3 }}
                       className="flex items-center gap-3 text-sm text-gray-600 dark:text-white/70"
                     >
-                      <div className="h-1.5 w-1.5 rounded-full bg-purple-500" />
+                      <div className="h-1.5 w-1.5 rounded-full bg-blue-500" />
                       {Tech}
                     </motion.div>
                   ))}
