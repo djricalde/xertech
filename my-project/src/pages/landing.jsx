@@ -4,6 +4,8 @@ import About from "../components/About";
 import Tech from "../components/Tech";
 import Project from "../components/Project";
 import Contact from "../components/Contact";
+import Footer from "../components/Footer";
+
 
 export default function Landing() {
   const [dark, setDark] = useState(false);
@@ -25,6 +27,7 @@ export default function Landing() {
         <Tech dark ={dark} />
         <Project dark ={dark} />
         <Contact dark ={dark} />
+        <Footer dark = {dark} /> 
       </div>
     </div>
   );

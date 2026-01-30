@@ -161,9 +161,9 @@ export default function Contact() {
               <div className="grid gap-2">
                 {[
                   { icon: Github, label: "GitHub", href: "https://github.com/DylanRicalde" },
-                  { icon: Linkedin, label: "LinkedIn", href: "https://linkedin.com/" },
+                  { icon: Linkedin, label: "LinkedIn", href: "https://www.linkedin.com/in/dylan-ricalde-7a940b3a8/" },
                   { icon: Facebook, label: "Facebook", href: "https://www.facebook.com/dylan.ricalde.5/" },
-                  { icon: Instagram, label: "Instagram", href: "https://instagram.com/" },
+                  { icon: Instagram, label: "Instagram", href: "https://www.instagram.com/dyljr2/" },
                   { icon: Mail, label: "Email", href: "mailto:dylanricalde20@gmail.com" }
                 ].map((social, index) => (
                   <motion.a

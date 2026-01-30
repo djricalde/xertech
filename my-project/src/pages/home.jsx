@@ -3,6 +3,7 @@ import { motion } from "framer-motion";
 import { useEffect, useState } from "react";
 import { TypeAnimation } from 'react-type-animation';
 import { Github } from "lucide-react";
+import { FileText } from "lucide-react";
 
 export default function Home({ dark, setDark }) {
   return (
@@ -72,8 +73,8 @@ export default function Home({ dark, setDark }) {
             />
           </motion.div>
           <div>
-            <p className="font-semibold tracking-tight dark:text-white">DylanTech</p>
-            <p className="text-xs opacity-70 dark:text-white/70">Full Stack Developer</p>
+            <p className="font-semibold tracking-tight dark:text-white">DylanTech.</p>
+            <p className="text-xs opacity-70 dark:text-white/70">Full-Stack Developer</p>
           </div>
         </motion.div>
 
@@ -199,7 +200,7 @@ export default function Home({ dark, setDark }) {
                 500,
               ]}
               wrapper="span"
-              speed={50}
+              speed={10}
               repeat={Infinity}
             />
           </motion.h1>
@@ -239,25 +240,29 @@ export default function Home({ dark, setDark }) {
                 stiffness: 400,
                 damping: 20
               }}
-              className="inline-flex items-center gap-2 rounded-full bg-[hsl(231_87%_60%)] px-7 py-3 text-sm md:text-base text-white font-semibold shadow-lg shadow-blue-500/40 hover:opacity-90 transition"
+              className="inline-flex items-center gap-2 rounded-full bg-[hsl(231_87%_60%)] px-7 py-2 text-sm md:text-base text-white font-semibold shadow-lg shadow-blue-500/40 hover:opacity-90 transition"
             >
               View Projects →
             </motion.button>
-            <motion.button 
-              whileHover={{ 
-                scale: 1.05,
-                y: -3
-              }}
-              whileTap={{ scale: 0.98 }}
-              transition={{ 
-                type: "spring",
-                stiffness: 400,
-                damping: 20
-              }}
-              className="inline-flex items-center gap-2 rounded-full border border-white/10 dark:border-white/20 px-7 py-3 text-sm md:text-base font-semibold bg-white dark:bg-white/10 dark:text-white hover:bg-black/5 dark:hover:bg-white/20 transition"
-            >
-              Download Resume
-            </motion.button>
+            <motion.a
+  href="/resume.pdf"
+  target="_blank"
+  rel="noopener noreferrer"
+  whileHover={{ 
+    scale: 1.05,
+    y: -3
+  }}
+  whileTap={{ scale: 0.98 }}
+  transition={{ 
+    type: "spring",
+    stiffness: 400,
+    damping: 20
+  }}
+  className="inline-flex items-center gap-2 rounded-full border border-white/10 dark:border-white/20 px-7 py-3 text-sm md:text-base font-semibold bg-white dark:bg-white/10 dark:text-white hover:bg-black/5 dark:hover:bg-white/20 transition"
+>
+  <FileText size={18} />
+  Resume
+</motion.a>
           </motion.div>
 
           <motion.div 
@@ -284,7 +289,7 @@ export default function Home({ dark, setDark }) {
     stiffness: 400,
     damping: 20
   }}
-  className="flex items-center gap-2 rounded-full border border-black/5 dark:border-white/10 px-5 py-2 bg-white dark:bg-white/10 dark:text-white shadow-sm hover:bg-black/5 dark:hover:bg-white/20 transition"
+  className="flex items-center gap-1 rounded-full border border-black/5 dark:border-white/10 px-5 py-2 bg-white dark:bg-white/10 dark:text-white shadow-sm hover:bg-black/5 dark:hover:bg-white/20 transition"
 >
   <Github size={18} strokeWidth={1.75} />
   <span>GitHub</span>
