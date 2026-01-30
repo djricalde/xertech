@@ -1,16 +1,35 @@
-# React + Vite
+Professional Portfolio - Aspiring Full Stack Developer
+A modern, responsive personal portfolio website built with React, Vite, Tailwind CSS, and Framer Motion. This project is designed to showcase the skills, projects, and professional identity of an aspiring Full Stack Developer.
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+🚀 Features
+Modern UI/UX: Polished design with thoughtful typography and spacing.
+Dark/Light Mode: Seamless theme switching with persistent user preference.
+Responsive Design: Fully optimized for mobile, tablet, and desktop screens.
+Animations: Smooth section transitions and micro-interactions using Framer Motion.
+Project Showcase: Categorized display of technical work with demo and repository links.
+Tech Stack: Grouped skills presentation highlighting Frontend, Backend, Database, and DevOps expertise.
+Contact System: Integrated contact form and social media links.
+🛠️ Tech Stack
+Frontend: React, TypeScript, Tailwind CSS, Framer Motion, Lucide Icons
+Routing: Wouter
+Components: Shadcn UI (Radix UI primitives)
+Build Tool: Vite
+📂 Project Structure
+client/src/pages/: Contains the main page components (Home, Not Found).
+client/src/components/: Reusable UI components (Buttons, Cards, Navigation).
+client/src/hooks/: Custom React hooks (Theme, Toast).
+client/index.html: Main entry point with SEO meta tags.
+client/src/index.css: Global styles and Tailwind configuration.
+🎨 Design Palette
+Primary: Blue (hsl(231 87% 60%))
+Accent: Purple (hsl(270 90% 62%))
+Background: Neutral Cool (hsl(220 25% 98%)) / Obsidian Midnight (hsl(225 20% 7%))
+📝 Customization
+To personalize this portfolio:
 
-Currently, two official plugins are available:
-
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
-
-## React Compiler
-
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
-
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+Update your information in client/src/pages/home.tsx.
+Replace project data in the Projects component.
+Update social links in the Contact and NavBar components.
+Add your resume PDF to client/public/ and link it in the Hero section.
+📄 License
+MIT License - feel free to use and modify for your own personal use.
