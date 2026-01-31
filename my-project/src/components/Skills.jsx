@@ -69,7 +69,7 @@ export default function Skills() {
          
           
           <h2 className="text-4xl md:text-5xl font-bold mb-4">
-            Technical Toolkit
+            Technical Tools
           </h2>
           
           <p className="text-lg max-w-3xl mx-auto text-gray-600 dark:text-white/70">

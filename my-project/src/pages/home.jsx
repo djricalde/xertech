@@ -73,8 +73,7 @@ export default function Home({ dark, setDark }) {
             />
           </motion.div>
           <div>
-            <p className="font-semibold tracking-tight dark:text-white">XerTech.</p>
-            <p className="text-xs opacity-70 dark:text-white/70">Full-Stack Developer</p>
+            <p className="font-semibold tracking-tight dark:text-white">XerTech.</p>         
           </div>
         </motion.div>
 
@@ -194,9 +193,9 @@ export default function Home({ dark, setDark }) {
             Hi, I'm{" "}
             <TypeAnimation
               sequence={[
-                'Dylan Ricalde',
+                'Dylan Jay Ricalde',
                 500,
-                'Full-Stack Developer',
+                'Aspiring Full-Stack Developer',
                 500,
               ]}
               wrapper="span"
@@ -215,7 +214,7 @@ export default function Home({ dark, setDark }) {
             }}
             className="mt-6 max-w-xl text-base md:text-lg opacity-80 dark:text-white/80"
           >
-            I am an Front-End Developer who wants to be a Full-Stack Developer. I have a strong foundation in modern web technologies, driven by curiosity and a passion for problem‑solving. I enjoy building scalable, user‑focused applications clean frontend design, while continuously learning backend systems and new tools to sharpen my skills.
+            I am a Front-End Developer who wants to be a Full-Stack Developer. I have a strong foundation in modern web technologies, driven by curiosity and a passion for problem‑solving. I enjoy building scalable, user‑focused applications clean frontend design, while continuously learning backend systems and new tools to sharpen my skills.
           </motion.p>
 
           <motion.div 

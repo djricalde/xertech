@@ -27,40 +27,17 @@ export default function Footer() {
         </motion.div>
         
         <div className="flex items-center gap-2">
-          {[
-            { icon: Github, href: "https://github.com/DylanRicalde", label: "GitHub" },
-            { icon: Linkedin, href: "https://www.linkedin.com/in/dylan-ricalde-7a940b3a8/", label: "LinkedIn" },
-            { icon: Facebook, href: "https://www.facebook.com/dylan.ricalde.5/", label: "Facebook" },
-            { icon: Instagram, href: "https://www.instagram.com/dyljr2/", label: "Instagram" },
-          ].map((social, index) => (
-            <motion.a
-              key={social.label}
-              href={social.href}
-              target={social.internal ? undefined : "_blank"}
-              rel={social.internal ? undefined : "noreferrer"}
-              initial={{ opacity: 0, scale: 0.8 }}
-              whileInView={{ opacity: 1, scale: 1 }}
-              viewport={{ once: true }}
-              transition={{ 
-                delay: 0.3 + index * 0.05,
-                duration: 0.3,
-                ease: [0.16, 1, 0.3, 1]
-              }}
-              whileHover={{ 
-                scale: 1.1,
-                y: -3,
-                transition: { duration: 0.2 }
-              }}
-              whileTap={{ scale: 0.95 }}
-              className="grid h-10 w-10 place-items-center rounded-xl border shadow-sm transition-all
-                         border-gray-200 bg-white
-                         dark:border-white/10 dark:bg-white/5
-                         hover:bg-gray-50 dark:hover:bg-white/10"
-              aria-label={social.label}
-            >
-              <social.icon className="h-4.5 w-4.5" />
-            </motion.a>
-          ))}
+          
+         <motion.div 
+         initial={{ opacity: 0 }}
+         whileInView={{ opacity: 1 }}
+         viewport={{ once: true }}
+         transition={{ delay: 0.3, duration: 0.6 }}
+         className="text-sm text-gray-600 dark:text-white font-bold"
+       >
+        XerTech.
+         </motion.div>
+          
         </div>
       </div>
     </motion.footer>
