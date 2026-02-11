@@ -1,10 +1,21 @@
 /* eslint-disable no-unused-vars */
-import { motion } from "framer-motion";
+import { useState, useRef, useEffect } from "react";
+import { motion, AnimatePresence } from "framer-motion";
 import { TypeAnimation } from 'react-type-animation';
 
-import { FileText } from "lucide-react";
+import { FileText, Moon, Sun } from "lucide-react";
 
-export default function Home({ dark, setDark }) {
+export default function Home({ dark, theme, setTheme, navScrolled = false }) {
+  const [themeOpen, setThemeOpen] = useState(false);
+  const themeRef = useRef(null);
+
+  useEffect(() => {
+    const handleClickOutside = (e) => {
+      if (themeRef.current && !themeRef.current.contains(e.target)) setThemeOpen(false);
+    };
+    document.addEventListener("click", handleClickOutside);
+    return () => document.removeEventListener("click", handleClickOutside);
+  }, []);
   return (
     <div className="relative min-h-screen bg-[hsl(220_25%_98%)] text-[hsl(222_25%_10%)]
                     dark:bg-[hsl(225_20%_7%)] dark:text-[hsl(220_15%_92%)]
@@ -41,34 +52,37 @@ export default function Home({ dark, setDark }) {
           delay: 0.2,
           ease: [0.16, 1, 0.3, 1]
         }}
-        className="fixed top-0 left-41 right-41 z-50 flex items-center justify-between px-8 py-2"
+        className={`fixed top-0 left-0 right-0 z-50 py-2 transition-colors duration-300 ${
+          navScrolled
+            ? "bg-transparent"
+            : "bg-[hsl(220_25%_98%/0.85)] dark:bg-[hsl(225_20%_7%/0.85)] backdrop-blur-sm"
+        }`}
       >
+        <div className="mx-auto flex max-w-[1200px] items-center justify-between px-8">
         {/* Logo + Title */}
         <motion.a
-  href="#home"
-  className="flex items-center gap-3"
-  whileHover={{ scale: 1.03 }}
->
-  <motion.div
-    whileHover={{ rotate: 360, scale: 1.1 }}
-    transition={{
-      duration: 0.7,
-      ease: [0.16, 1, 0.3, 1]
-    }}
-    className="flex h-10 w-10 items-center justify-center rounded-full 
-               bg-[hsl(222_25%_10%)] dark:bg-white"
-  >
-    <img
-      src="/logo.png"
-      alt="XerTech Home"
-      className="block h-8 w-8 object-contain"
-    />
-  </motion.div>
-
-  <span className="flex items-center font-semibold tracking-tight dark:text-white">
-    XerTech.
-  </span>
-</motion.a>
+          href="#home"
+          className="flex items-center gap-3"
+          whileHover={{ scale: 1.03 }}
+        >
+          <motion.div
+            whileHover={{ rotate: 360, scale: 1.1 }}
+            transition={{
+              duration: 0.7,
+              ease: [0.16, 1, 0.3, 1]
+            }}
+            className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-[hsl(222_25%_10%)] dark:bg-white"
+          >
+            <img
+              src="/logo.png"
+              alt="XerTech Home"
+              className="block h-8 w-8 object-contain"
+            />
+          </motion.div>
+          <span className="font-semibold tracking-tight dark:text-white">
+            XerTech.
+          </span>
+        </motion.a>
 
 
         {/* Center Nav */}
@@ -94,44 +108,82 @@ export default function Home({ dark, setDark }) {
                 y: -3,
                 transition: { duration: 0.2 }
               }}
-              className="transition-opacity dark:text-white text-base"
+              className={`relative dark:text-white text-base transition-opacity duration-300
+                         after:absolute after:left-0 after:bottom-[-2px] after:block after:h-px after:w-full after:bg-linear-to-r after:from-blue-600 after:to-blue-400 after:content-['']
+                         after:scale-x-0 after:origin-center hover:after:scale-x-100 after:transition-transform after:duration-200
+                         ${navScrolled ? "opacity-40 hover:opacity-70" : "opacity-70 hover:opacity-100"}`}
             >
               {link.label}
             </motion.a>
           ))}
         </nav>
 
-        {/* Theme Toggle */}
-        <motion.button
-          initial={{ opacity: 0, x: 20 }}
-          animate={{ opacity: 1, x: 0 }}
-          transition={{ 
-            duration: 0.6,
-            delay: 0.6,
-            ease: [0.16, 1, 0.3, 1]
-          }}
-          whileHover={{ scale: 1.05 }}
-          whileTap={{ scale: 0.98 }}
-          onClick={() => setDark(!dark)}
-          className="flex items-center gap-2 rounded-full bg-black/5 dark:bg-white/5 px-3 py-1 text-xs font-medium"
-        >
-          <span className={`text-xs opacity-80 ${dark ? "text-white" : ""}`}>
-            {dark ? "Dark" : "Light"}
+        {/* Theme dropdown */}
+        <div className="relative" ref={themeRef}>
+          <span
+            className={`inline-block rounded-xl ${!dark ? "p-[2px]" : ""}`}
+          >
+            <motion.button
+              type="button"
+              initial={{ opacity: 0, x: 20 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.6, delay: 0.6, ease: [0.16, 1, 0.3, 1] }}
+              whileTap={{ scale: 0.98 }}
+              onClick={() => setThemeOpen((o) => !o)}
+              className={`flex items-center justify-center rounded-[10px] p-2.5 shadow-sm transition-colors
+                ${!dark
+                  ? "bg-white text-gray-800"
+                  : "border border-white/20 bg-[hsl(225_15%_6%)] text-white"
+                }`}
+              aria-expanded={themeOpen}
+              aria-haspopup="true"
+            >
+              {!dark ? (
+                <Sun className="h-4 w-4" strokeWidth={2} />
+              ) : (
+                <Moon className="h-4 w-4" strokeWidth={2} />
+              )}
+            </motion.button>
           </span>
-          <span className={`relative inline-flex h-5 w-9 items-center rounded-full transition-colors ${
-            dark ? "bg-[hsl(231_87%_60%)]" : "bg-gray-100"
-          }`}>
-            <motion.span
-              animate={{ x: dark ? 16 : 2 }}
-              transition={{ 
-                type: "spring",
-                stiffness: 700,
-                damping: 40
-              }}
-              className="absolute h-4 w-4 rounded-full bg-white shadow-sm"
-            />
-          </span>
-        </motion.button>
+          <AnimatePresence>
+            {themeOpen && (
+              <motion.div
+                initial={{ opacity: 0, y: -6 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: -6 }}
+                transition={{ duration: 0.15 }}
+                className={`absolute right-0 top-full mt-1.5 min-w-[100px] rounded-lg border py-1 shadow-xl transition-colors ${
+                  dark
+                    ? "border-white/20 bg-[hsl(225_15%_6%)] text-white"
+                    : "border-gray-200 bg-white text-gray-800"
+                }`}
+              >
+                {["Light", "Dark", "System"].map((label) => {
+                  const value = label.toLowerCase();
+                  const active = theme === value;
+                  return (
+                    <button
+                      key={value}
+                      type="button"
+                      onClick={() => {
+                        setTheme(value);
+                        setThemeOpen(false);
+                      }}
+                      className={`w-full px-4 py-2 text-left text-sm ${
+                        dark
+                          ? active ? "bg-white/10" : ""
+                          : active ? "bg-gray-100" : ""
+                      }`}
+                    >
+                      {label}
+                    </button>
+                  );
+                })}
+              </motion.div>
+            )}
+          </AnimatePresence>
+        </div>
+        </div>
       </motion.header>
 
       {/* Hero Section */}
